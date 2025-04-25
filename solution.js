@@ -104,8 +104,11 @@ function main() {
     const testCase1 = JSON.parse(fs.readFileSync('testcase1.json', 'utf8'));
     const testCase2 = JSON.parse(fs.readFileSync('testcase2.json', 'utf8'));
     
-    console.log("Secret for Test Case 1:", processTestCase(testCase1));
-    console.log("Secret for Test Case 2:", processTestCase(testCase2));
+    const output = [];
+    output.push("Secret for Test Case 1: " + processTestCase(testCase1));
+    output.push("Secret for Test Case 2: " + processTestCase(testCase2));
+
+    fs.writeFileSync('output.txt', output.join('\n'), 'utf8');
 }
 
 main();
